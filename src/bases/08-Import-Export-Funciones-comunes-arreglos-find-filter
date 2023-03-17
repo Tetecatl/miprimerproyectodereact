@@ -1,0 +1,18 @@
+import owners, {heroes} from '../src/data/heroes'
+
+const retornarPersona = (id)=>
+{
+    return heroes.find(heroe => heroe.id===id);
+}
+
+console.log(retornarPersona(5));
+
+
+const retornarOwner = (letra)=>
+{
+    return heroes.filter((heroe) => heroe.owner === letra );
+}
+
+console.log(retornarOwner('Marvel'));
+
+console.log(owners);
