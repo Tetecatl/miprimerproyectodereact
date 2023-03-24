@@ -33,3 +33,39 @@ const getHeroeByIdAsync = (id) =>{
 getHeroeByIdAsync(1)
     .then(console.log) //manda el primer argunmento que recibe then
     .catch(console.warn);
+
+
+
+
+
+
+//eje: 3
+const getName=()=> {
+    return new Promise((resolve,reject)=>{
+    const persona = {
+        nombre: 'Alicia',
+        apellido: 'Flores',
+        lugarNacimiento: {
+            ciudad: 'Izucar de Matamoros',
+            estado: 'Puebla',
+            lugaresVividos: ['Izucar', 'Raboso', 'Tehuitzingo', 'La Galarza', 'Puebla', 'CDMX']
+        },
+        edad: 24
+    }
+    
+    const {nombre, lugarNacimiento:{ciudad,estado, lugaresVividos:[,,,,,CDMX]}} = persona;
+
+    const msj = `Mi nombre es: ${nombre} 
+    y soy de ${ciudad}, he vivido en: ${CDMX}`
+    resolve(msj);
+    if(msj===null){
+        reject(console.log('Ocurrio un error'));
+    }
+})}
+
+getName().then((msj)=> {
+    console.log('Mensaje:',msj, 'C:');
+}
+).catch((err)=>{
+    console.warn('se ha producido un error:', err);
+})
